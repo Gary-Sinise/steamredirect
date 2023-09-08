@@ -16,22 +16,41 @@
                 // Extract the ID from the URL
                 var fileId = match[1];
 
-                // Construct the new URL
+                // Construct the new URL(s)
                 var newUrl = 'steam://url/CommunityFilePage/' + fileId;
 
                 var newUrl2 = 'https://steamcommunity.com/sharedfiles/filedetails/?id=' + fileId;
 
                 // Redirect to the new URL
-                window.location.href = newUrl;
+                window.location.replace = newUrl;
             } else {
                 // Redirect to a default URL if the pattern doesn't match
-                window.location.href = newUrl2;
+                window.location.replace = newUrl2;
             }
         };
+        function returnToSteam () {
+            // Get the current URL
+            var currentUrl = window.location.href;
+
+            // Define the pattern to match against
+            var pattern = /filedetails\/\?id=(\d+)/;
+
+            // Check if the current URL matches the pattern
+            var match = currentUrl.match(pattern);
+
+            // Extract the ID from the URL
+            var fileId = match[1];
+
+            // Construct the new URL
+            var ogUrl = 'https://steamcommunity.com/sharedfiles/filedetails/?id=' + fileId;
+
+            //Redirect to 'original' url
+            window.location.replace = ogUrl;
+        }
     </script>
 </head>
 <body>
-    <p>You should be automatically redirected to the requested file inside your Steam application or to the relevant steam webpage. If you are not redirected, <a id="newUrl2" href="#">click here</a>.</p>
+    <p>You should be automatically redirected to the requested file inside your Steam application or to the relevant steam webpage. If you are not redirected, <a href="javascript:returnToSteam()">click here</a>.</p>
     <p></p>
     <p>If you would like to return to the homepage, <a href="https://fxsteamcommunity.com/">click here</a>.</p>
 </body>
