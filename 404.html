@@ -19,13 +19,13 @@
                 // Construct the new URL
                 var newUrl = 'steam://url/CommunityFilePage/' + fileId;
 
-
+                var newUrl2 = 'https://steamcommunity.com/sharedfiles/filedetails/?id=' + fileId;
 
                 // Redirect to the new URL
                 window.location.href = newUrl;
             } else {
                 // Redirect to a default URL if the pattern doesn't match
-                window.location.href = 'https://steamcommunity.com/sharedfiles/filedetails/?id=' + fileId;
+                window.location.href = newUrl2;
             }
         };
     </script>
