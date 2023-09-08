@@ -1,2 +1,2 @@
 # steamredirect
-Automatically redirects to steam uri
+Automatically redirects Steam community links to steam uri
